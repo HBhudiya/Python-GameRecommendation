@@ -23,3 +23,17 @@ def keyword(query):
 
     # Return the list of recommended games
     return data.get("results", [])
+
+# Function to get details for a game using a game ID
+def game_details(game_id):
+    url = f"{BASE_URL}/games/{game_id}"
+    parameters = {
+        "key": API_KEY
+    }
+
+    # Make a GET request to the RAWG API
+    response = requests.get(url, params=parameters)
+    data = response.json()
+
+    # Return the game details
+    return data
